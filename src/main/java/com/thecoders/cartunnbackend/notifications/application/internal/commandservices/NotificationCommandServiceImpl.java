@@ -30,8 +30,8 @@ public class NotificationCommandServiceImpl implements NotificationCommandServic
         }
         var notification = new Notification(command, order);
         try {
-            notificationRepository.save(notification);
-            return notification.getId();
+            Notification savedNotification = notificationRepository.save(notification);
+            return savedNotification.getId();
         } catch (Exception e) {
             throw new IllegalArgumentException("Error while saving notification: " + e.getMessage());
         }
