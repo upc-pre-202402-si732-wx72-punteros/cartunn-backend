@@ -20,11 +20,11 @@ public class CartCommandServiceImpl implements CartCommandService {
     public Long handle(CreateCartCommand command) {
         var cart = new Cart(command);
         try {
-            cartRepository.save(cart);
+            Cart savedCart = cartRepository.save(cart);
+            return savedCart.getId();
         } catch (Exception e) {
             throw new IllegalArgumentException("Error while saving cart: " + e.getMessage());
         }
-        return cart.getId();
     }
     @Override
     public Optional<Cart> handle(UpdateCartCommand command) {
