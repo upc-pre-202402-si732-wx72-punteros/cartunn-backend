@@ -4,9 +4,11 @@ import com.thecoders.cartunnbackend.notifications.domain.model.commands.CreateNo
 import com.thecoders.cartunnbackend.purchasing.domain.model.aggregates.Order;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 import org.apache.logging.log4j.util.Strings;
 
 @Getter
+@Setter
 @Entity
 @Table(name = "notifications")
 public class Notification {
