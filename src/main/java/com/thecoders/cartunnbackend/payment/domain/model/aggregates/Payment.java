@@ -8,9 +8,11 @@ import com.thecoders.cartunnbackend.productRefunds.domain.model.commands.CreateP
 import com.thecoders.cartunnbackend.shared.domain.model.aggregates.AuditableAbstractAggregateRoot;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 import org.apache.logging.log4j.util.Strings;
 
 @Getter
+@Setter
 @Entity
 public class Payment  extends AuditableAbstractAggregateRoot<Payment> {
     @Column(name = "card_number", nullable = false)

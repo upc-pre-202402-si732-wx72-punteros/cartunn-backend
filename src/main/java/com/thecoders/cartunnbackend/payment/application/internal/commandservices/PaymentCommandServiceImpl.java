@@ -23,8 +23,8 @@ public class PaymentCommandServiceImpl implements PaymentCommandService {
     public Long handle(CreatePaymentCommand command) {
         var payment = new Payment(command);
         try {
-            paymentRepository.save(payment);
-            return payment.getId();
+            Payment savedPayment = paymentRepository.save(payment);
+            return savedPayment.getId();
         } catch (Exception e) {
             throw new IllegalArgumentException("Error while saving payment: " + e.getMessage());
         }
