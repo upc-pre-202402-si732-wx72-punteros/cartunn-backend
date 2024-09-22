@@ -14,4 +14,41 @@ public class CartunnBackendApplication {
     public static void main(String[] args) {
         SpringApplication.run(CartunnBackendApplication.class, args);
     }
+
+     @Configuration
+     public static class Myconfiguration{
+         @Bean
+         public WebMvcConfigurer corsConfigurer() {
+             return new WebMvcConfigurer() {
+                 @Override
+                 public void addCorsMappings(CorsRegistry registry) {
+                     registry.addMapping("/**")
+                             .allowedOrigins("*")
+                             .allowedMethods("*")
+                             .allowedHeaders("*");
+                 }
+             };
+         }
+     }
+
+     @EnableWebSecurity
+     public class WebSecurityConfig {
+         @Bean
+         public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+             http.cors().and()
+                 .csrf().disable();
+             return http.build();
+         }
+
+         @Bean
+         public CorsConfigurationSource corsConfigurationSource() {
+             CorsConfiguration configuration = new CorsConfiguration();
+             configuration.setAllowedOrigins(Arrays.asList("*"));
+             configuration.setAllowedMethods(Arrays.asList("*"));
+             configuration.setAllowedHeaders(Arrays.asList("*"));
+             UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+             source.registerCorsConfiguration("/**", configuration);
+             return source;
+         }
+     }
 }
