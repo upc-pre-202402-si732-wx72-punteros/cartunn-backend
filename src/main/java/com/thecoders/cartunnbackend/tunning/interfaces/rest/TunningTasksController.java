@@ -53,7 +53,7 @@ public class TunningTasksController {
         return ResponseEntity.ok(tunningTaskResources);
     }
 
-    @PutMapping("/{taskId}")
+    @PutMapping("/{tunningTaskId}")
     public ResponseEntity<TunningTaskResource> updateTunningTask(@PathVariable Long tunningTaskId, @RequestBody UpdateTunningTaskResource updateTunningTaskResource) {
         var updateTunningTaskCommand = UpdateTunningTaskCommandFromResourceAssembler.toCommandFromResource(tunningTaskId, updateTunningTaskResource);
         var updatedTunningTask = tunningTaskCommandService.handle(updateTunningTaskCommand);
@@ -64,7 +64,7 @@ public class TunningTasksController {
         return ResponseEntity.ok(tunningTaskResource);
     }
 
-    @DeleteMapping("/{taskId}")
+    @DeleteMapping("/{tunningTaskId}")
     public ResponseEntity<?> deleteTunningTask(@PathVariable Long tunningTaskId) {
         var deleteTunningTaskCommand = new DeleteTunningTaskCommand(tunningTaskId);
         tunningTaskCommandService.handle(deleteTunningTaskCommand);
