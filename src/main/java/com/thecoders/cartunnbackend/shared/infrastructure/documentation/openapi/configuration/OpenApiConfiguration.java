@@ -26,6 +26,7 @@ public class OpenApiConfiguration {
                 .externalDocs(new ExternalDocumentation()
                         .description("Cartunn backend Wiki Documentation")
                         .url("https://cartunn-backend.wiki.github.io/docs"));
+                .addServersItem(new Server().url("https://cartunn-backend-production.up.railway.app"));
 
         // Add Security Scheme
         /*final String securitySchemeName = "bearerAuth";
