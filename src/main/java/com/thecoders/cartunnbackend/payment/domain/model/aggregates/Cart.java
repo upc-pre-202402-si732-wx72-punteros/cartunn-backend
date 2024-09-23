@@ -5,11 +5,14 @@ import com.thecoders.cartunnbackend.product.domain.model.aggregates.Product;
 import jakarta.persistence.*;
 import lombok.Getter;
 import com.thecoders.cartunnbackend.shared.domain.model.aggregates.AuditableAbstractAggregateRoot;
+import lombok.Setter;
+
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
 @Getter
+@Setter
 @Entity
 public class Cart extends AuditableAbstractAggregateRoot<Cart>{
     @ManyToOne(fetch = FetchType.LAZY)

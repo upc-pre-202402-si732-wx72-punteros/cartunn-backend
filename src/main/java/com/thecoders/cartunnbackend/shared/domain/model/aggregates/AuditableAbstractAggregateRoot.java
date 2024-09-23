@@ -9,7 +9,6 @@ import org.springframework.data.domain.AbstractAggregateRoot;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.Date;
-
 @Getter
 @Setter
 @EntityListeners(AuditingEntityListener.class)
