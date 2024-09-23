@@ -21,7 +21,7 @@ public class CartunnBackendApplication {
                 @Override
                 public void addCorsMappings(CorsRegistry registry) {
                     registry.addMapping("/**")
-                            .allowedOrigins("https://cartunn-backend-production.up.railway.app")
+                            .allowedOrigins("http://localhost:3306", "http://localhost:3306/","http://localhost:4200", "http://localhost:4200/", "https://cartunn-backend-production.up.railway.app", "https://cartunn-backend-production.up.railway.app/", "https://cartunn-backend-production.up.railway.app/swagger-ui/index.html#", "https://cartunn-backend-production.up.railway.app/swagger-ui/index.html#/")
                             .allowedMethods("HEAD", "GET", "PUT", "POST", "DELETE", "PATCH")
                             .allowedHeaders("*");
                 }
