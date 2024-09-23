@@ -12,7 +12,6 @@ public class CartunnBackendApplication {
     public static void main(String[] args) {
         SpringApplication.run(CartunnBackendApplication.class, args);
     }
-
     @Configuration
     public static class Myconfiguration{
         @Bean
@@ -22,11 +21,8 @@ public class CartunnBackendApplication {
                 public void addCorsMappings(CorsRegistry registry) {
                     registry.addMapping("/**")
                             .allowedOrigins("*")
-                            .allowedMethods("HEAD", "GET", "PUT", "POST", "DELETE", "PATCH")
-                            .allowedHeaders("Origin", "Accept", "X-Requested-With", "Content-Type", "Access-Control-Request-Method", "Access-Control-Request-Headers")
-                            .exposedHeaders("Access-Control-Allow-Origin", "Access-Control-Allow-Credentials")
-                            .allowCredentials(true)
-                            .maxAge(10);
+                            .allowedMethods("*")
+                            .allowedHeaders("*");
                 }
             };
         }
