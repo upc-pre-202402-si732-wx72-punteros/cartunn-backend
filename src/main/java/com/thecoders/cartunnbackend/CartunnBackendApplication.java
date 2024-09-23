@@ -21,8 +21,8 @@ public class CartunnBackendApplication {
                 @Override
                 public void addCorsMappings(CorsRegistry registry) {
                     registry.addMapping("/**")
-                            .allowedOrigins("*")
-                            .allowedMethods("*")
+                            .allowedOrigins("https://cartunn-backend-production.up.railway.app")
+                            .allowedMethods("HEAD", "GET", "PUT", "POST", "DELETE", "PATCH")
                             .allowedHeaders("*");
                 }
             };
