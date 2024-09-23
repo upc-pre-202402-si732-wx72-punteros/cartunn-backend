@@ -21,9 +21,12 @@ public class CartunnBackendApplication {
                 @Override
                 public void addCorsMappings(CorsRegistry registry) {
                     registry.addMapping("/**")
-                            .allowedOrigins("https://cartunn-backend-production.up.railway.app")
+                            .allowedOrigins("*")
                             .allowedMethods("HEAD", "GET", "PUT", "POST", "DELETE", "PATCH")
-                            .allowedHeaders("*");
+                            .allowedHeaders("Origin", "Accept", "X-Requested-With", "Content-Type", "Access-Control-Request-Method", "Access-Control-Request-Headers")
+                            .exposedHeaders("Access-Control-Allow-Origin", "Access-Control-Allow-Credentials")
+                            .allowCredentials(true)
+                            .maxAge(10);
                 }
             };
         }
