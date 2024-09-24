@@ -23,13 +23,9 @@ public class OrderCommandServiceImpl implements OrderCommandService {
         if (purchasingOrderRepository.existsByName(command.name())) {
             throw new IllegalArgumentException("Notification with same order already exists");
         }
-        var order = new Order(command);
-        try {
-            purchasingOrderRepository.save(order);
-            return order.getId();
-        } catch (Exception e) {
-            throw new IllegalArgumentException("Error while saving order: " + e.getMessage());
-        }
+        Order order = new Order(command);
+        Order savedOrder = purchasingOrderRepository.save(order);
+        return savedOrder.getId();
     }
 
     @Override
